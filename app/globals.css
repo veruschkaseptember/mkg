@@ -5,6 +5,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #742365;
+  --secondary: #b2639a;
+  --light: #fdfcfa;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,5 +20,52 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-roboto), system-ui, sans-serif;
+}
+
+.swiper-pagination-bullet {
+  width: 20px !important;
+  height: 20px !important;
+  background: rgba(178, 99, 154, 0.3) !important;
+  opacity: 0.3 !important;
+  margin: 0 4px !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  background: rgba(178, 99, 154, 0.8) !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  color: #fdfcfa !important;
+  font-size: 24px !important;
+}
+
+@layer components {
+  .prose-xl {
+    @apply text-[21px] leading-relaxed;
+  }
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+@layer utilities {
+  .-scale-x-100 {
+    transform: scaleX(-1);
+  }
 }

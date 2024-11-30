@@ -1,101 +1,71 @@
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
+import PopularServices from './components/sections/popular-services';
+import PortfolioIntro from './components/sections/portfolio-intro';
+import Testimonials from './components/sections/testimonials';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <>
+      {/* Hero Section */}
+      <section className="relative h-[1074px] w-full mt-[-148px]">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="/hero_image.png"
+          alt="Maria Kotze Gardens Hero"
+          fill
           priority
+          className="object-cover"
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="absolute inset-0 bg-white/25" />
+
+        <div className="relative z-10 mx-auto max-w-[1440px] h-full flex flex-col justify-center items-center text-center px-4">
+          <h1 className="font-bold mb-4">
+            <span className="block text-[96px] text-primary">
+              Maria Kotze Gardens
+            </span>
+            <span className="block text-[48px] text-[#2A2035]">
+              Landscape Artist
+            </span>
+          </h1>
+
+          <div className="flex gap-8 mt-12">
+            <Link
+              href="tel:+27823570557"
+              className="h-[69px] px-8 flex items-center gap-3 
+                rounded-[35px] bg-secondary text-[21px] font-bold text-light
+                hover:bg-primary transition-colors">
+              <Image src="/phone_icon.png" alt="Phone" width={25} height={25} />
+              082 357 0557
+            </Link>
+            <Link
+              href="mailto:maria@mkgardens.co.za"
+              className="h-[69px] px-8 flex items-center gap-3
+                rounded-[35px] bg-secondary text-[21px] font-bold text-light
+                hover:bg-primary transition-colors">
+              <Image src="/email_icon.png" alt="Email" width={25} height={25} />
+              maria@mkgardens.co.za
+            </Link>
+            <Link
+              href="https://wa.me/+27823570557"
+              className="h-[69px] px-8 flex items-center gap-3
+                rounded-[35px] bg-secondary text-[21px] font-bold text-light
+                hover:bg-primary transition-colors">
+              <Image
+                src="/whatsapp_icon.png"
+                alt="WhatsApp"
+                width={25}
+                height={25}
+              />
+              082 357 0557
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+      {/* Popular Services Section */}
+      <PopularServices />
+      <PortfolioIntro />
+      <Testimonials />
+    </>
   );
 }
